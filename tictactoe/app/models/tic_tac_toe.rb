@@ -21,7 +21,8 @@ class TicTacToe < ActiveRecord::Base
   def board
     result = [nil, nil, nil, nil, nil, nil, nil, nil, nil]
     moves.each do |move| 
-      result[move.square] = move.user
+      result[move.square] = "X" if move.user.id == player1_id
+      result[move.square] = "O" if move.user.id == player2_id
     end
     return result
   end
