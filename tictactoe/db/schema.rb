@@ -14,11 +14,11 @@
 ActiveRecord::Schema.define(:version => 20140428135339) do
 
   create_table "moves", :force => true do |t|
-    t.integer  "tictactoe_id"
+    t.integer  "tic_tac_toe_id"
     t.integer  "user_id"
     t.integer  "square"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "tic_tac_toes", :force => true do |t|

@@ -6,25 +6,38 @@ class TicTacToe < ActiveRecord::Base
 
   has_many :moves
 
-  def start_game
-    t = TicTacToe.new
-    @player1 = t.player1
-    @player2 = t.player2
 
-    t.save
-  end
+  #put it into the controller
+  # def start_game
+  #   t = TicTacToe.new
+  #   current_user = t.player1
+  #   @player2 = t.player2
+
+  #   t.save
+  # end
+
+  
 
   def board
-    [ nil, nil, nil, nil, nil, nil, nil, nil, nil]
+    result = [nil, nil, nil, nil, nil, nil, nil, nil, nil]
+    moves.each do |move| 
+      result[move.square] = move.user
+    end
+    return result
   end
   
-  def make_move
-    
+
+  def make_move(user, square)
+    move = moves.build(user_id: user.id, square: square)
+
+    move.user_id = user.id
+    move.square = square
+
+    self.moves << move
 
   end
 
- #starting array: [ nil, nil, nil, nil, nil, nil, nil, nil, nil]
- #initialize starting: array
+
 
 
 
