@@ -10,13 +10,15 @@ class Move < ActiveRecord::Base
 
   validate :game_over
   validate :insure_player_is_playing
-  validate :insure_player_is_allowed_to_turn
+  validate :insure_player_is_allowed_to_turn #TODO: not working
   validate :insure_square_is_valid
-  validate :insure_square_is_empty
+  validate :insure_square_is_empty #TODO: X still overrides O
+  validate :check_game_is_won #TODO: do it
+
 
   private
-  def insure_base_is_allowed_to_turn
-    errors.add(:base, 'It is not your turn.') if ti
+  def check_game_is_won
+    errors.add(:base, 'Game won.') if tic_tac_toe.winning_game?
   end
 
   private

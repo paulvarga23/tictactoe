@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20140428135339) do
     t.integer  "draws"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "role"
   end
 
 end

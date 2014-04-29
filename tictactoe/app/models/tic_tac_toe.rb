@@ -1,21 +1,10 @@
 class TicTacToe < ActiveRecord::Base
-  attr_accessible :player1_id, :player2_id, :turn, :winning_player_id
+  attr_accessible :player1_id, :player2_id, :turn, :winning_player_id, :player2
 
   belongs_to :player1, class_name: "User" 
   belongs_to :player2, class_name: "User" 
 
   has_many :moves
-
-
-  # def self.start_game(player1_id, player2_id)
-  #   t = TicTacToe.new
-  #   @player_x = t.player1_id 
-  #   @player_o = t.player2_id 
-
-  #   t.save
-
-  #   return t
-  # end
   
 
   def board
@@ -48,6 +37,11 @@ class TicTacToe < ActiveRecord::Base
   player1 == user || player2 == user
   end
 
+  def whose_turn?
+  return player1 if moves.empty?
+  moves.last.user == player1 ? player2 : player1
+  end
+
   def winning_move_positions
   [
     [0,1,2],
@@ -76,9 +70,8 @@ class TicTacToe < ActiveRecord::Base
   winning_game? || drawn_game?
   end
 
-  def whose_turn?
-  return player1 if moves.empty?
-  moves.last.user == player1 ? player2 : player1
-  end
+  
+
+
 
 end

@@ -1,0 +1,25 @@
+<h2>Start New Game</h2>
+
+<%= form_for(@tictactoe) do |f| %>
+  <% if @tictactoe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tictactoe.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+      <% @tictactoe.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :player2_id %> <br />
+  
+    <%= f.collection_select(:player2_id, User.all, :id, :name) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
