@@ -8,8 +8,13 @@ class User < ActiveRecord::Base
 
   has_many :moves
 
-  def role?(role)
-  self.role.to_s == role.to_s
-  end
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :email, uniqueness: true
+
+  def role?(role_to_compare)
+    self.role.to_s == role_to_compare.to_s
+  end 
+
 
 end

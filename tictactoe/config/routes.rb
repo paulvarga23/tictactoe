@@ -1,11 +1,11 @@
 Tictactoe::Application.routes.draw do
-  resources :users, :tictactoes
+  resources :users, :tic_tac_toes
 
   root to: "users#index"
   get 'login', to: 'sessions#new'
   resources :sessions, only: [:new, :create, :destroy]
 
-  post '/tictactoes/:id/delete' => "tictactoes#destroy", :as => 'tictactoe_delete'
+  post '/tic_tac_toes/:id/delete' => "tic_tac_toes#destroy", :as => 'tic_tac_toe_delete'
 
   
 

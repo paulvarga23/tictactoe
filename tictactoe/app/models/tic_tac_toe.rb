@@ -7,15 +7,15 @@ class TicTacToe < ActiveRecord::Base
   has_many :moves
 
 
-  #put it into the controller
-  # def start_game
+  # def self.start_game(player1_id, player2_id)
   #   t = TicTacToe.new
-  #   current_user = t.player1
-  #   @player2 = t.player2
+  #   @player_x = t.player1_id 
+  #   @player_o = t.player2_id 
 
   #   t.save
-  # end
 
+  #   return t
+  # end
   
 
   def board
@@ -26,7 +26,6 @@ class TicTacToe < ActiveRecord::Base
     end
     return result
   end
-  
 
   def make_move(user, square)
     move = moves.build(user_id: user.id, square: square)
@@ -34,43 +33,52 @@ class TicTacToe < ActiveRecord::Base
     move.user_id = user.id
     move.square = square
 
-    self.moves << move
-
+    return move
   end
 
-  # def winning_positions
-  #   all_moves = moves.all 
-  #   user_moves = moves.map { |move| move.user_id }
+  def square_is_in_range?(square)
+    square >= 0 && square <= 8
+  end
 
-  #   a = user_moves[0]
-  #   b = user_moves[1]
-  #   c = user_moves[2]
-  #   d = user_moves[3]
-  #   e = user_moves[4]
-  #   f = user_moves[5]
-  #   g = user_moves[6]
-  #   h = user_moves[7]
-  #   i = user_moves[8]
+  def square_is_empty?(square)
+    square = nil
+  end
 
-  #   #horizontal winners
-  #   winner_one = [a, b, c]
-  #   winner_two = [d, e, f]
-  #   winner_three = [g, h, i]
+  def one_of_my_players?(user)
+  player1 == user || player2 == user
+  end
 
-  #   #vertical winners
-  #   winner_four = [a, d, g]
-  #   winner_five = [b, e, h]
-  #   winner_six = [c, f, i]
-
-  #   #diagonal winners 
-  #   winner_seven = [a, e, i]
-  #   winner_eight = [g, e, c]
-
-  #   if winner_one.uniq.size == 1 || winner_two.uniq.size == 1 || winner_three.uniq.size == 1 || winner_four.uniq.size == 1 || winner_five.uniq.size == 1 || winner_six.uniq.size == 1 || winner_seven.uniq.size == 1 || winner_eight.uniq.size == 1
-  #   end
-
-
-  # end
+  def winning_move_positions
+  [
+    [0,1,2],
+    [3,4,5],
+    [6,7,8],
+    [0,3,6],
+    [1,4,7],
+    [2,5,8],
+    [0,4,8],
+    [2,4,6]
+  ]
+  end
  
+  def winning_game?
+  !!winning_move_positions.detect do |winning_move|
+    board_sub_set = winning_move.map { |square| board[square] }
+    board_sub_set.any? && board_sub_set.uniq.size == 1
+    end
+  end
+
+  def drawn_game?
+  board.all? && !winning_game?
+  end
+
+  def game_is_finished?
+  winning_game? || drawn_game?
+  end
+
+  def whose_turn?
+  return player1 if moves.empty?
+  moves.last.user == player1 ? player2 : player1
+  end
 
 end
