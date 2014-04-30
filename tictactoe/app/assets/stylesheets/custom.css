@@ -1,7 +1,8 @@
 body {
   margin: 0 auto;
-  background-color: #f2f2f2;
   color:  #6E707A;
+  background: url(game1.jpg);
+  background-size: cover;
 }
 
 body a {
@@ -26,13 +27,20 @@ header ul li {
   font-size: 18px;
 }
 
+section {
+  text-align: right;
+  margin-top: -38px;
+  margin-right: 5%;
+  font-size: 20px;
+}
+
 footer {
   background-color: #000000;
-  position:fixed;
-  left:0px;
-  bottom:0px;
-  height:20px;
-  width:100%;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  height: 20px;
+  width: 100%;
   text-align: center;
   vertical-align: middle;
   padding: 20px;
@@ -53,35 +61,51 @@ footer p {
   margin-bottom: 5%;
 }
 
-#signup {
+.sign {
   padding: 20px;
+  background-color: rgba(0, 42, 255, 0.1);
+  margin-right: 60%;
 }
 
-#signup h1 {
+.sign h1 {
   font-size: 72px;
   font-weight: bold;
 }
 
-#signup h2 {
+.sign h2 {
   font-size: 32px;
   margin-top: 0.5%;
   margin-bottom: 3%;
 }
 
-#signup .field {
-  padding: 5px;
+.sign .field {
+  padding: 10px;
 }
-
-#signup .field input {
+.sign .field input {
   margin-bottom: 5px;
 }
 
-.indextable {
+#container {
+  text-align: center;
+  font-size: 22px;
+  color: #E62324;;
+  margin-top: 1%;
+}
+
+.index {
+  position: relative;
+  padding: 20px;
+  margin-left: 0;
+  margin-right: 40%;
+}
+
+.index table {
   table-layout: fixed;
   width: 800px;
   height: 400px;
   text-align: center;
-  border: 1px solid black;
+  border: solid black 1px;
+  background-color: rgba(0, 42, 255, 0.3);
 }
 
 .index th {
@@ -89,6 +113,7 @@ footer p {
   font-size: 26px;
   padding: 10px;
   width: 100px;
+  text-align: center;
 }
 
 .index td {
@@ -98,24 +123,61 @@ footer p {
   padding: 10px;
   width: 100px;
   text-align: center;
+  font-size: 22px;
 }
 
-.index td .index a {
-  font-size: 26px;
+.index a {
+  font-size: 36px;
+  font-weight: bold;
 }
 
-/*.index button {
-  todo
-}*/
+#startgame {
+  position: relative;
+  float: right;
+  right: 10%;
+  top: 550px;
+}
 
+#startgame ul {
+  background-color: rgba(0, 42, 255, 0.3);
+}
 
+#startgame ul li {
+  padding: 5px;
+  padding-right: 40px;
+  margin: 5px;
+  display: inline;
+  text-align: center;
+}
+
+#startgame ul li a {
+  font-size: 36px;
+}
+
+.show {
+  position: absolute;
+  background-color: rgba(0, 42, 255, 0.3);
+  margin-right: 30px;
+  margin-top: 27px;
+  padding: 20px 40px 20px 40px;
+}
+
+.show p {
+  font-size: 22px;
+}
 
 .board table {
-    border: 1px solid black;
-    table-layout: fixed;
-    width: 300px;
-    height: 300px;
-    text-align: center;
+  position: relative;
+  float: right;
+  top: 27px;
+  right: 600px;
+  border: 3px solid black;
+  table-layout: fixed;
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  margin-bottom: 10%;
+  background-color: rgba(0, 42, 255, 0.5); 
 }
 
 .board th, .board td {
@@ -126,7 +188,11 @@ footer p {
 }
 
 .board th, .board td board. a {
-    font-size: 150px;
     width: 50px;
     height: 50px;
+}
+
+.board a {
+  font-size: 100px;
+  color: rgba(0, 42, 255, 0.5); 
 }

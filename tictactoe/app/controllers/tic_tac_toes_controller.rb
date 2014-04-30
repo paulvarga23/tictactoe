@@ -20,7 +20,7 @@ class TicTacToesController < ApplicationController
 
     respond_to do |format|
       if @tic_tac_toe.save
-        format.html { redirect_to @tic_tac_toe, notice: 'TicTacToe was successfully created.' }
+        format.html { redirect_to @tic_tac_toe, notice: 'TicTacToe was successfully created' }
       else
         format.html { render action: 'new'}
       end
@@ -32,16 +32,25 @@ class TicTacToesController < ApplicationController
     if @move.save && @tic_tac_toe.winning_game?
       @tic_tac_toe.winning_player_id = @move.user_id
       @tic_tac_toe.save
-      flash[:notice] = "#{@move.user.name} has won the game."
+      flash[:notice] = "#{@move.user.name} has won the game"
     elsif @move.save && @tic_tac_toe.drawn_game?
-      flash[:notice] = "This game is a draw."
+      flash[:notice] = "This game is a draw"
     else
-      flash[:error] = "Move had the following errors: " + @move.errors.full_messages.to_sentence
+      flash[:error] = @move.errors.full_messages.to_sentence
     end
     redirect_to @tic_tac_toe
   end
 
   # def computer_move
+
+    #random move rand(8)
+
+    #if player1 equals two of winning column hinder them
+
+    #if player1 !!plays 5 play5 and then 4 or 6
+
+    #if player1 plays 5 play corner, if player1 plays corner play corner 
+
 
   # end
   

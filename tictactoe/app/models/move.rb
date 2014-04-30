@@ -10,40 +10,40 @@ class Move < ActiveRecord::Base
 
   validate :game_over
   validate :insure_player_is_playing
-  validate :insure_player_is_allowed_to_turn #TODO: not working
+  validate :insure_player_is_allowed_to_turn 
   validate :insure_square_is_valid
-  validate :insure_square_is_empty #TODO: X still overrides O
-  validate :check_game_is_won #TODO: do it
+  validate :insure_square_is_empty 
+  validate :check_game_is_won 
 
 
   private
   def check_game_is_won
-    errors.add(:base, 'Game won.') if tic_tac_toe.winning_game?
+    errors.add(:base, 'Game won') if tic_tac_toe.winning_game?
   end
 
   private
   def game_over
-    errors.add(:base, 'Game over.') if tic_tac_toe.game_is_finished?
+    errors.add(:base, 'Game over') if tic_tac_toe.game_is_finished?
   end
 
   private
   def insure_player_is_playing
-    errors.add(:base, 'Player is not active.') unless tic_tac_toe.one_of_my_players?(user)
+    errors.add(:base, 'This player is not active') unless tic_tac_toe.one_of_my_players?(user)
   end
 
   private
   def insure_player_is_allowed_to_turn
-    errors.add(:base, 'It is not your turn.') unless user == tic_tac_toe.whose_turn?
+    errors.add(:base, 'It is not your turn') unless user == tic_tac_toe.whose_turn?
   end
 
   private
   def insure_square_is_valid
-    errors.add(:square, 'is not in range.') unless tic_tac_toe.square_is_in_range?(square)
+    errors.add(:square, 'is not in range') unless tic_tac_toe.square_is_in_range?(square)
   end
 
   private 
   def insure_square_is_empty
-    errors.add(:square, 'is not empty.') unless tic_tac_toe.square_is_empty?(square)
+    errors.add(:square, 'is not empty') unless tic_tac_toe.square_is_empty?(square)
   end
 
 

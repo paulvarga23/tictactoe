@@ -1,6 +1,11 @@
-<h1> Tic Tac Toe </h1>
+<div id="startgame">
+  <ul>
+    <li><%= link_to "Start Tic Tac Toe" , new_tic_tac_toe_path %></li>
+  </ul>
+</div>
 
 <div class= "index">
+  <h1> Tic Tac Toe Board </h1>
   <table>
     <tr>
       <th>Go To Game</th>
@@ -8,7 +13,6 @@
       <th>Player 2</th>
       <th>Turn</th>
       <th>Winner</th>
-      <th>Remove</th>
     </tr> 
   <% @tic_tac_toes.each do |tic_tac_toe|%>
     <tr>
@@ -31,14 +35,11 @@
           <p>Ongoing</p>
         <% end %>
       </td>
-      <td><%= button_to 'Delete Game', tic_tac_toe_delete_path(tic_tac_toe) %></td>
     </tr>
 
   <% end %>
   </table>
+
 </div>
 
-<ul>
-  <li><%= link_to "New Game" , new_tic_tac_toe_path %></li>
-</ul>
 

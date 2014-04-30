@@ -1,25 +1,29 @@
-<h2>Start New Game</h2>
+<div class="sign">
 
-<%= form_for(@tic_tac_toe) do |f| %>
-  <% if @tic_tac_toe.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@tic_tac_toe.errors.count, "error") %> prohibited this category from being saved:</h2>
+  <h2>Start New Game</h2>
 
-      <ul>
-      <% @tic_tac_toe.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <%= form_for(@tic_tac_toe) do |f| %>
+    <% if @tic_tac_toe.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@tic_tac_toe.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+        <ul>
+        <% @tic_tac_toe.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <div class="field">
+      <%= f.label :player2_id %> <br />
+    
+      <%= f.collection_select(:player2_id, User.all, :id, :name) %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
-  
-  <div class="field">
-    <%= f.label :player2_id %> <br />
-  
-    <%= f.collection_select(:player2_id, User.all, :id, :name) %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
