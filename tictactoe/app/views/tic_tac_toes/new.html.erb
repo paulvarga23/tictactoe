@@ -1,12 +1,12 @@
 <h2>Start New Game</h2>
 
-<%= form_for(@tictactoe) do |f| %>
-  <% if @tictactoe.errors.any? %>
+<%= form_for(@tic_tac_toe) do |f| %>
+  <% if @tic_tac_toe.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@tictactoe.errors.count, "error") %> prohibited this category from being saved:</h2>
+      <h2><%= pluralize(@tic_tac_toe.errors.count, "error") %> prohibited this category from being saved:</h2>
 
       <ul>
-      <% @tictactoe.errors.full_messages.each do |msg| %>
+      <% @tic_tac_toe.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>

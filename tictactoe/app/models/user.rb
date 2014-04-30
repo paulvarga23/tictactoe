@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   attr_accessible :draws, :email, :losses, :name, :password, :password_confirmation, :wins
 
   has_many :tictactoes_as_player1, foreign_key: "player1_id", class_name: "TicTacToe" 
-  has_many :tictactoes_as_player2, foreign_key: "player2_id", class_name: "TicTacToe" 
+  has_many :tictactoes_as_player2, foreign_key: "player2_id", class_name: "TicTacToe"
+  has_many :tictactoes_as_winning_player, foreign_key: "winning_player_id", class_name: "TicTacToe" 
 
   has_many :moves
 

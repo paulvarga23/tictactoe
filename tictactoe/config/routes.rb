@@ -6,7 +6,7 @@ Tictactoe::Application.routes.draw do
     end
   end    
 
-  root to: "users#index"
+  root to: "users#new"
   get 'login', to: 'sessions#new'
   resources :sessions, only: [:new, :create, :destroy]
 

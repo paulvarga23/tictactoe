@@ -1,5 +1,7 @@
 <% if @tic_tac_toe.square_is_empty?(square) && @tic_tac_toe.whose_turn? == current_user %>
   <%= link_to square, move_tic_tac_toe_path( square: square), action: :create, method: :post %>
+<% elsif @tic_tac_toe.drawn_game? %>
+  <p>DRAW</p>
 <% else %>
   <%= @tic_tac_toe.board[square] %>
 <% end %>
