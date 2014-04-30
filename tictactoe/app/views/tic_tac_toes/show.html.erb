@@ -2,6 +2,8 @@
 
 <p>Player 1: <%= current_user.name %></p>
 <p>Player 2: <%= @tictactoe.player2.name %></p>
+<p>It's <%= @tictactoe.whose_turn?.name %>'s turn.</p>
+
 
 <div class= "board">
   <table>
@@ -13,7 +15,7 @@
     <tr>   
       <td><%= link_to @tictactoe.board[3] %> </td> 
       <td><%= link_to @tictactoe.board[4] %> </td> 
-      <td><%= link_to @tictactoe.board[5]
+      <td><%= link_to @tictactoe.board[5] %> </td>
     <tr>  
       <td><%= link_to @tictactoe.board[6] %> </td> 
       <td><%= link_to @tictactoe.board[7] %> </td>

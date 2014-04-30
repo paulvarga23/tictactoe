@@ -29,17 +29,40 @@ class TicTacToesController < ApplicationController
     end
   end
 
-  def user_move(user, square)
-    @tictactoe.make.move
-  end
+  # def user_move
+  #   user = @tictactoe.whose_turn?
+  #   if @tictactoe.one_of_my_players?(user)
+  #     unless @tictactoe.game_is_finished?
+  #       if @tictactoe.square_is_in_range? && @tictactoe.square_is_empty?
+  #         @tictactoe.make_move
+  #         redirect_to @tictactoe
+  #       else
+  #         "You need to return a valid square"
+  #       end
+  #     else
+  #       if @tictactoe.winning_game?
+  #         #return winner
+  #       else
+  #         #return draw
+  #       end
+  #     redirect_to @tictactoe
+  #     end
+  #   else
+  #     "You need to be Player 1 or Player 2 to play this awesome game."
+  #   end
+  # end
+
+  # def computer_move
+
+  # end
   
 
-  # def destroy
-  #   @tictactoe = TicTacToe.find(params[:id])
+  def destroy
+    @tictactoe = TicTacToe.find(params[:id])
     
-  #   @tictactoe.destroy
-  #   redirect_to(categories_path)
-  # end
+    @tictactoe.destroy
+    redirect_to(tic_tac_toes_path)
+  end
 
 #   def edit
 #     @tictactoe = TicTacToe.find(params[:id])

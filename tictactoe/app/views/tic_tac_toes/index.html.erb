@@ -3,6 +3,9 @@
    <%= link_to tictactoe.id, tic_tac_toe_path(tictactoe) %>
    <%= tictactoe.player1_id %>
    <%= tictactoe.player2_id %>
+  <%= button_to 'Delete Game', tic_tac_toe_delete_path(tictactoe) %>
   <% end %>
 
-<li><%= link_to "New Game" , new_tic_tac_toe_path %></li>
+<ul>
+  <li><%= link_to "New Game" , new_tic_tac_toe_path %></li>
+</ul>
