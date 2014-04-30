@@ -30,7 +30,7 @@ class TicTacToe < ActiveRecord::Base
   end
 
   def square_is_empty?(square)
-    square = nil
+    board[square] == nil
   end
 
   def one_of_my_players?(user)

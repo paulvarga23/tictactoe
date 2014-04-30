@@ -2,7 +2,10 @@ class TicTacToesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @tictactoes = TicTacToe.all
+
+    @tic_tac_toes = current_user.tic_tac_toes
+
+
   end
 
   def show
@@ -15,10 +18,8 @@ class TicTacToesController < ApplicationController
   end
 
   def create 
-    @tictactoe = TicTacToe.new
-
+    @tictactoe = TicTacToe.new(params[:tic_tac_toe])
     @tictactoe.player1 = current_user
-    @tictactoe.player2 = User.find(params[:tic_tac_toe][:player2_id])
 
     respond_to do |format|
       if @tictactoe.save
@@ -29,28 +30,13 @@ class TicTacToesController < ApplicationController
     end
   end
 
-  # def user_move
-  #   user = @tictactoe.whose_turn?
-  #   if @tictactoe.one_of_my_players?(user)
-  #     unless @tictactoe.game_is_finished?
-  #       if @tictactoe.square_is_in_range? && @tictactoe.square_is_empty?
-  #         @tictactoe.make_move
-  #         redirect_to @tictactoe
-  #       else
-  #         "You need to return a valid square"
-  #       end
-  #     else
-  #       if @tictactoe.winning_game?
-  #         #return winner
-  #       else
-  #         #return draw
-  #       end
-  #     redirect_to @tictactoe
-  #     end
-  #   else
-  #     "You need to be Player 1 or Player 2 to play this awesome game."
-  #   end
-  # end
+  def move
+    @move = @tic_tac_toe.make_move(current_user, params[:square])
+    unless @move.save
+      flash[:error] = "Move had the following errors: " + @move.errors.full_messages.to_sentence
+    end
+    redirect_to @tic_tac_toe
+  end
 
   # def computer_move
 

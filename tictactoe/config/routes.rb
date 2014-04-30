@@ -1,5 +1,10 @@
 Tictactoe::Application.routes.draw do
-  resources :users, :tic_tac_toes
+  resources :users
+  resources :tic_tac_toes do
+    member do
+      post 'move/:square', to: 'tic_tac_toes#move', as: 'move'
+    end
+  end    
 
   root to: "users#index"
   get 'login', to: 'sessions#new'

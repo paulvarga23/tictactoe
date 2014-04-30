@@ -19,4 +19,9 @@ class User < ActiveRecord::Base
   end 
 
 
+  def tic_tac_toes
+    TicTacToe.where('player1_id' => id) + TicTacToe.where('player2_id' => id)
+  end
+
+
 end
