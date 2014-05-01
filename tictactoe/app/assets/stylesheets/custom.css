@@ -3,6 +3,7 @@ body {
   color:  #6E707A;
   background: url(game1.jpg);
   background-size: cover;
+  font-family: 'Raleway', 'Helvetica', 'Arial' sans-serif;
 }
 
 body a {
