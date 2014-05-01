@@ -62,20 +62,5 @@ class TicTacToesController < ApplicationController
     redirect_to(tic_tac_toes_path)
   end
 
-#   def edit
-#     @tic_tac_toe = TicTacToe.find(params[:id])
-#   end
-
-#   def update
-#     @tic_tac_toe = TicTacToe.find(params[:id])
-
-#     respond_to do |format|
-#       if @tic_tac_toe.update_attributes(params[:category])
-#       format.html { redirect_to @tic_tac_toe, notice: 'TicTacToe was successfully updated.' }
-#       else
-#       format.html { render action: "edit" }
-#       end
-#     end
-#   end
 
 end

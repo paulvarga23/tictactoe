@@ -65,7 +65,7 @@ class TicTacToe < ActiveRecord::Base
   end
 
   def drawn_game?
-  board.all? && !winning_game?
+  board.any? && board.all? && !winning_game?
   end
 
   def game_is_finished?

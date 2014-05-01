@@ -13,6 +13,7 @@
       <th>Player 2</th>
       <th>Turn</th>
       <th>Winner</th>
+      <th>Won Games</h>
     </tr> 
   <% @tic_tac_toes.each do |tic_tac_toe|%>
     <tr>
@@ -36,9 +37,48 @@
         <% end %>
       </td>
     </tr>
-
+      
   <% end %>
   </table>
+
+  <table>
+    <tr>
+      <th>
+        Total Games
+      </th>
+      <th>
+        Average
+      </th>
+      <th>
+        Won
+      </th>
+      <th>
+        Drawn
+      </th>
+      <th>
+        Lost
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <%= @current_user.finished_tic_tac_toes.count %>
+      </td>
+      <td>
+        <%= number_to_percentage ( @current_user.tictactoes_as_winning_player.count).to_f / (@current_user.tic_tac_toes.count).to_f %>
+      </td>
+      <td>
+        <%= @current_user.tictactoes_as_winning_player.count %>
+      </td>
+      <td>
+        <%= @current_user.finished_games_drawn.count %>
+      </td>
+      <td>
+        <%= @current_user.finished_games_lost.count %>
+      </td>
+    </tr>
+
+  </table>
+
 
 </div>
 
