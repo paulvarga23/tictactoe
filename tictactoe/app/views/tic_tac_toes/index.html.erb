@@ -1,11 +1,12 @@
-<div id="startgame">
-  <ul>
-    <li><%= link_to "Start Tic Tac Toe" , new_tic_tac_toe_path %></li>
-  </ul>
-</div>
-
 <div class= "index">
-  <h1> Tic Tac Toe Board </h1>
+
+  <div id="startgame">
+    <p><%= link_to image_tag("tictactoe_new.png"), new_tic_tac_toe_path %></p>
+    <p><%= link_to 'Click for New Game', new_tic_tac_toe_path %></p>
+  </div>
+
+  <h1> Your Tic Tac Toe Games </h1>
+
   <table>
     <tr>
       <th>Go To Game</th>
@@ -13,27 +14,27 @@
       <th>Player 2</th>
       <th>Turn</th>
       <th>Winner</th>
-      <th>Won Games</h>
     </tr> 
   <% @tic_tac_toes.each do |tic_tac_toe|%>
+    
     <tr>
       <td><%= link_to tic_tac_toe.id, tic_tac_toe_path(tic_tac_toe) %></td>
       <td><%= tic_tac_toe.player1.try(:name) %></td>
       <td><%= tic_tac_toe.player2.try(:name) %></td>
       <td>
         <% if tic_tac_toe.game_is_finished? %>
-          <p>Game done</p>
+          Game done
         <% else %>
           <%= tic_tac_toe.whose_turn?.name %>
         <% end %>
       </td>
       <td>
         <% if tic_tac_toe.winning_game? %>
-          <%= tic_tac_toe.winning_player.name %>
+          <%= tic_tac_toe.winning_player.try(:name) %>
         <% elsif tic_tac_toe.drawn_game? %>
-          <p>Draw</p>
+          Draw
         <% else %>
-          <p>Ongoing</p>
+          <strong>Ongoing</strong>
         <% end %>
       </td>
     </tr>
@@ -42,47 +43,51 @@
 
   </table>
 
-  <%= paginate @tic_tac_toes, theme: 'twitter-bootstrap' %>
+  <ul>
+    <li>
+      <%= paginate @tic_tac_toes, theme: 'twitter-bootstrap' %>
+    </li>
+  </ul>
 
-  <table>
-    <tr>
-      <th>
-        Total Games
-      </th>
-      <th>
-        Average
-      </th>
-      <th>
-        Won
-      </th>
-      <th>
-        Drawn
-      </th>
-      <th>
-        Lost
-      </th>
-    </tr>
-    <tr>
-      <td>
-        <%= @current_user.finished_tic_tac_toes.count %>
-      </td>
-      <td>
-        <%= number_to_percentage ( @current_user.tictactoes_as_winning_player.count).to_f / (@current_user.tic_tac_toes.count).to_f %>
-      </td>
-      <td>
-        <%= @current_user.tictactoes_as_winning_player.count %>
-      </td>
-      <td>
-        <%= @current_user.finished_games_drawn.count %>
-      </td>
-      <td>
-        <%= @current_user.finished_games_lost.count %>
-      </td>
-    </tr>
+  <div id="score">
+    <table>
+      <tr>
+        <th>
+          Total Games
+        </th>
+        <th>
+          Average
+        </th>
+        <th>
+          Won
+        </th>
+        <th>
+          Drawn
+        </th>
+        <th>
+          Lost
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <%= @current_user.finished_tic_tac_toes.count %>
+        </td>
+        <td>
+          <%= number_to_percentage ( @current_user.tictactoes_as_winning_player.count).to_f / (@current_user.tic_tac_toes.count).to_f %>
+        </td>
+        <td>
+          <%= @current_user.tictactoes_as_winning_player.count %>
+        </td>
+        <td>
+          <%= @current_user.finished_games_drawn.count %>
+        </td>
+        <td>
+          <%= @current_user.finished_games_lost.count %>
+        </td>
+      </tr>
 
-  </table>
-
-
+    </table>
+  </div>
 </div>
 
 
