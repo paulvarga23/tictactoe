@@ -1,14 +1,11 @@
-<div class="show">
+<div id="show">
 
-  <h2>Game <%= @tic_tac_toe.id %></h2>
+  <h2>Welcome to Game <%= @tic_tac_toe.id %></h2>
 
   <p>Player 1: <%= current_user.name %></p>
   <p>Player 2: <%= @tic_tac_toe.player2.name %></p>
-  <p>It's <%= @tic_tac_toe.whose_turn?.name %>'s turn.</p>
+  <p>It's <em><strong><%= @tic_tac_toe.whose_turn?.name %></strong></em>'s turn.</p>
 
-</div>
-
-<div class= "board">
   <table>
     <% (0..8).each_slice(3) do |slice| %>
       <tr>
