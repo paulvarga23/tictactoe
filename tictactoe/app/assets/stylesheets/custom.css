@@ -125,6 +125,11 @@ footer p {
   padding: 5px 20px 5px 20px;
 }
 
+.index h1 {
+  font-size: 46px;
+  margin-bottom: 90px;
+}
+
 .index h2 {
   font-size: 32px;
   font-weight: bold;

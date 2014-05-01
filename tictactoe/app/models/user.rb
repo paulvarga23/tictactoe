@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :moves
 
   validates :name, presence: true
+  validates :email, uniqueness: true
   validates :email, presence: true
   validates :email, uniqueness: true
 

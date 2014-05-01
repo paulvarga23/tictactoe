@@ -2,8 +2,11 @@ class TicTacToesController < ApplicationController
   load_and_authorize_resource
 
   def index
+
     @tic_tac_toes_current = current_user.tic_tac_toes
-    @tic_tac_toes = @tic_tac_toes.order(:created_at).page(params[:page])    
+    
+    @tic_tac_toes = @tic_tac_toes.order(:created_at).page(params[:page])
+
   end
 
   def show
