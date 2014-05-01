@@ -6,7 +6,7 @@ class TicTacToe < ActiveRecord::Base
   belongs_to :winning_player, class_name: "User" 
 
 
-  has_many :moves
+  has_many :moves, order: :created_at
   
 
   def board
@@ -28,11 +28,14 @@ class TicTacToe < ActiveRecord::Base
   end
 
   def make_computer_move!
-    move = moves.build
+    square = empty_squares.sample
+    move = moves.build(square: square, user_id: player2_id)
 
-    move.square = empty_squares.sample
+    move.save!
+  end
 
-    return move
+  def computer_game?
+    player2 == User.find_by_name('Computer')
   end
 
   def square_is_in_range?(square)
@@ -48,12 +51,12 @@ class TicTacToe < ActiveRecord::Base
   end
 
   def one_of_my_players?(user)
-  player1 == user || player2 == user
+    player1 == user || player2 == user
   end
 
   def whose_turn?
-  return player1 if moves.empty?
-  moves.last.user == player1 ? player2 : player1
+    return player1 if moves.empty?
+    moves.last.user == player1 ? player2 : player1
   end
 
   def winning_move_positions
@@ -77,15 +80,11 @@ class TicTacToe < ActiveRecord::Base
   end
 
   def drawn_game?
-  board.any? && board.all? && !winning_game?
+    board.any? && board.all? && !winning_game?
   end
 
   def game_is_finished?
-  winning_game? || drawn_game?
+    winning_game? || drawn_game?
   end
-
-  
-
-
 
 end

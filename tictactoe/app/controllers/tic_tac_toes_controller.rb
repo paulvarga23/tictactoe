@@ -30,32 +30,26 @@ class TicTacToesController < ApplicationController
 
   def move
     @move = @tic_tac_toe.make_move(current_user, params[:square])
-    if @move.save && @tic_tac_toe.winning_game?
-      @tic_tac_toe.winning_player_id = @move.user_id
-      @tic_tac_toe.save
-      flash[:notice] = "#{@move.user.name} has won the game"
-    elsif @move.save && @tic_tac_toe.drawn_game?
-      flash[:notice] = "This game is a draw"
-    else
-      flash[:error] = @move.errors.full_messages.to_sentence
-    end
-    redirect_to @tic_tac_toe
-  end
+    if @move.save 
 
-  def computer_move
-    @move = @tic_tac_toe.make_computer_move!
-    if @move.save && @tic_tac_toe.winning_game?
-      @tic_tac_toe.winning_player_id = @move.user_id
-      @tic_tac_toe.save
-      flash[:notice] = "#{@move.user.name} has won the game"
-    elsif @move.save && @tic_tac_toe.drawn_game?
-      flash[:notice] = "This game is a draw"
+      if @tic_tac_toe.computer_game? && @tic_tac_toe.whose_turn? == @tic_tac_toe.player2
+        @tic_tac_toe.make_computer_move! unless  @tic_tac_toe.winning_game?
+      end
+      
+      if @tic_tac_toe.winning_game?
+        @tic_tac_toe.reload
+        @tic_tac_toe.winning_player_id = @tic_tac_toe.moves.last.user_id
+        @tic_tac_toe.save
+        flash[:notice] = "#{@tic_tac_toe.winning_player.name} has won the game"
+      elsif @tic_tac_toe.drawn_game?
+        flash[:notice] = "This game is a draw"
+      end
+
     else
       flash[:error] = @move.errors.full_messages.to_sentence
     end
     redirect_to @tic_tac_toe
   end
-  
 
   def destroy
     @tic_tac_toe = TicTacToe.find(params[:id])

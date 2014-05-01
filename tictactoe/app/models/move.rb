@@ -15,7 +15,6 @@ class Move < ActiveRecord::Base
   validate :insure_square_is_empty 
   validate :check_game_is_won 
 
-
   private
   def check_game_is_won
     errors.add(:base, 'Game won') if tic_tac_toe.winning_game?
