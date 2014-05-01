@@ -18,8 +18,8 @@
   <% @tic_tac_toes.each do |tic_tac_toe|%>
     <tr>
       <td><%= link_to tic_tac_toe.id, tic_tac_toe_path(tic_tac_toe) %></td>
-      <td><%= tic_tac_toe.player1.name %></td>
-      <td><%= tic_tac_toe.player2.name %></td>
+      <td><%= tic_tac_toe.player1.try(:name) %></td>
+      <td><%= tic_tac_toe.player2.try(:name) %></td>
       <td>
         <% if tic_tac_toe.game_is_finished? %>
           <p>Game done</p>
@@ -39,7 +39,10 @@
     </tr>
       
   <% end %>
+
   </table>
+
+  <%= paginate @tic_tac_toes, theme: 'twitter-bootstrap' %>
 
   <table>
     <tr>

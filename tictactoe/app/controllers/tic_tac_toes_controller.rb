@@ -2,7 +2,8 @@ class TicTacToesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @tic_tac_toes = current_user.tic_tac_toes
+    @tic_tac_toes_current = current_user.tic_tac_toes
+    @tic_tac_toes = @tic_tac_toes.order(:created_at).page(params[:page])    
   end
 
   def show
@@ -41,18 +42,19 @@ class TicTacToesController < ApplicationController
     redirect_to @tic_tac_toe
   end
 
-  # def computer_move
-
-    #random move rand(8)
-
-    #if player1 equals two of winning column hinder them
-
-    #if player1 !!plays 5 play5 and then 4 or 6
-
-    #if player1 plays 5 play corner, if player1 plays corner play corner 
-
-
-  # end
+  def computer_move
+    @move = @tic_tac_toe.make_computer_move!
+    if @move.save && @tic_tac_toe.winning_game?
+      @tic_tac_toe.winning_player_id = @move.user_id
+      @tic_tac_toe.save
+      flash[:notice] = "#{@move.user.name} has won the game"
+    elsif @move.save && @tic_tac_toe.drawn_game?
+      flash[:notice] = "This game is a draw"
+    else
+      flash[:error] = @move.errors.full_messages.to_sentence
+    end
+    redirect_to @tic_tac_toe
+  end
   
 
   def destroy

@@ -27,12 +27,24 @@ class TicTacToe < ActiveRecord::Base
     return move
   end
 
+  def make_computer_move!
+    move = moves.build
+
+    move.square = empty_squares.sample
+
+    return move
+  end
+
   def square_is_in_range?(square)
     square >= 0 && square <= 8
   end
 
   def square_is_empty?(square)
     board[square] == nil
+  end
+
+  def empty_squares
+    (0..8).select { |i| square_is_empty? i }
   end
 
   def one_of_my_players?(user)
