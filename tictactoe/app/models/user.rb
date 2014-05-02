@@ -20,9 +20,11 @@ class User < ActiveRecord::Base
     self.role.to_s == role_to_compare.to_s
   end 
 
-
   def tic_tac_toes
-    TicTacToe.where('player1_id' => id) + TicTacToe.where('player2_id' => id)
+    tic_tac_toes = TicTacToe.where('player1_id' => id) + TicTacToe.where('player2_id' => id)
+    tic_tac_toes.sort_by do |tic_tac_toe|
+      tic_tac_toe[:created_at]
+    end.reverse
   end
 
   def finished_tic_tac_toes
