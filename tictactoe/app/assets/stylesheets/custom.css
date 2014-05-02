@@ -165,6 +165,17 @@ footer p {
   font-size: 26px;
 }
 
+.index img {
+  margin-top: 10%;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.special {
+  color: #E62324;
+}
+
 #startgame {
   float: right;
   display: inline;

@@ -1,10 +1,10 @@
-<meta http-equiv="refresh" content="10">
+<meta http-equiv="refresh" content="5">
 
 <div id="show">
 
   <h2>Welcome to Game <%= @tic_tac_toe.id %></h2>
 
-  <p>Player 1: <%= current_user.name %></p>
+  <p>Player 1: <%= @tic_tac_toe.player1.name %></p>
   <p>Player 2: <%= @tic_tac_toe.player2.name %></p>
   <p>It's <em><strong><%= @tic_tac_toe.whose_turn?.name %></strong></em>'s turn.</p>
 

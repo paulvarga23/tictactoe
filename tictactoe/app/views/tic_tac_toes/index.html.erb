@@ -10,7 +10,7 @@
   <% if @tic_tac_toes_current.any? %>
     <table>
       <tr>
-        <th>Go To Game</th>
+        <th><em><strong>Go To Game</strong></em></th>
         <th>Player 1</th>
         <th>Player 2</th>
         <th>Turn</th>
@@ -19,7 +19,7 @@
     <% @tic_tac_toes.each do |tic_tac_toe|%>
       
       <tr>
-        <td><%= link_to tic_tac_toe.id, tic_tac_toe_path(tic_tac_toe) %></td>
+        <td><%= link_to image_tag("tictactoe_new.png"), tic_tac_toe_path(tic_tac_toe) %></td>
         <td><%= tic_tac_toe.player1.try(:name) %></td>
         <td><%= tic_tac_toe.player2.try(:name) %></td>
         <td>
@@ -35,7 +35,9 @@
           <% elsif tic_tac_toe.drawn_game? %>
             Draw
           <% else %>
-            <strong>Ongoing</strong>
+            <span class="special">
+              <strong>ONGOING</strong>
+            </span>
           <% end %>
         </td>
       </tr>
@@ -53,7 +55,7 @@
       <table>
         <tr>
           <th>
-            Total Games
+            #Games
           </th>
           <th>
             Average
