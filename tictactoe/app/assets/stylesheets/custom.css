@@ -3,11 +3,10 @@ body {
   color:  #6E707A;
   background: url(game1.jpg);
   background-size: cover;
-  font-family: 'Raleway', 'Helvetica', 'Arial' sans-serif;
 }
 
 body a {
-  color: #E62324;
+  color: #00FFF4;
   font-size: 20px;
 }
 
@@ -25,15 +24,16 @@ header {
 header ul li {
   display: inline;
   padding: 20px;
-  font-size: 18px;
+}
+
+header a {
+  font-size: 26px;
 }
 
 section {
   text-align: right;
-  margin-top: -38px;
+  margin-top: -47px;
   margin-right: 5%;
-  font-size: 20px;
-  font-weight: bold;
 }
 
 footer {
@@ -111,7 +111,7 @@ footer p {
 #container {
   text-align: center;
   font-size: 22px;
-  color: #E62324;
+  color: #00FFF4;
   margin-top: 1%;
 }
 
@@ -173,7 +173,7 @@ footer p {
 }
 
 .special {
-  color: #E62324;
+  color: #00FFF4;
 }
 
 #startgame {
@@ -204,11 +204,11 @@ footer p {
 }
 
 .index ul li a:hover {
-  color: #E62324;
+  color: #00FFF4;
 }
 
 #score {
-  color: #E62324;
+  color: #00FFF4;
 }
 
 #score table {
@@ -248,9 +248,9 @@ footer p {
   text-align: center;
   font-size: 76px;
   font-weight: bold;
-  color: #E62324;
+  color: #00FFF4;
   border: collapse;
-  border-style: hidden:;
+  border-style: hidden;
   background-color: rgba(0, 42, 255, 0.2);
 }
 
@@ -292,6 +292,6 @@ footer p {
 #show td a:hover {
   font-size: 76px;
   font-weight: bold;
-  color: #E62324;
+  color: #00FFF4;
   text-decoration: underline;
 }

@@ -6,7 +6,15 @@
 
   <p>Player 1: <%= @tic_tac_toe.player1.name %></p>
   <p>Player 2: <%= @tic_tac_toe.player2.name %></p>
-  <p>It's <em><strong><%= @tic_tac_toe.whose_turn?.name %></strong></em>'s turn.</p>
+
+  <% if @tic_tac_toe.winning_game? %>
+    <p>Game over. <%= @tic_tac_toe.winning_player.try(:name) %> won.</p>
+  <% elsif @tic_tac_toe.drawn_game? %>
+    <p>Game over. Draw.</p>
+  <% else %>
+    <p>It's <em><strong><%= @tic_tac_toe.whose_turn?.name %></strong></em>'s turn.</p>
+  <% end %>
+
 
   <table>
     <% (0..8).each_slice(3) do |slice| %>
