@@ -111,8 +111,9 @@ footer p {
 #container {
   text-align: center;
   font-size: 22px;
-  color: #00FFF4;
+  color: #FF0000;
   margin-top: 1%;
+  font-weight: bold;  
 }
 
 .index {
