@@ -13,3 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function() {
+    $('#board').on('click', function() {
+       $('#board_square').submit();
+       alert("hello");
+    });
+  });

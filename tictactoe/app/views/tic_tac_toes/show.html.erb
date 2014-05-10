@@ -12,9 +12,8 @@
   <% elsif @tic_tac_toe.drawn_game? %>
     <p>Game over. Draw.</p>
   <% else %>
-    <p>It's <em><strong><%= @tic_tac_toe.whose_turn?.name %></strong></em>'s turn.</p>
+    <p id ="status">It's <em><%= @tic_tac_toe.whose_turn?.name %></strong></em>'s turn.</p>
   <% end %>
-
 
   <table>
     <% (0..8).each_slice(3) do |slice| %>

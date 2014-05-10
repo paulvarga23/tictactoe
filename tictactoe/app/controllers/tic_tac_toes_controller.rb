@@ -48,10 +48,20 @@ class TicTacToesController < ApplicationController
         flash[:notice] = "This game is a draw"
       end
 
+      # add javascript 
+      respond_to do |format|
+        format.js #{ render '.js.erb' }
+        format.html { redirect_to @tic_tac_toe, notice: 'Thanks for making this move- lets see how good it is.' }
+        format.json { render json: @tic_tac_toe }
+      end
+
     else
       flash[:error] = @move.errors.full_messages.to_sentence
+      redirect_to @tic_tac_toe
     end
-    redirect_to @tic_tac_toe
+    
+    
+
   end
 
   def destroy

@@ -1,222 +1,341 @@
-body {
-  margin: 0 auto;
-  color:  #6E707A;
-  background: url(game1.jpg);
-  background-size: cover;
-}
+  body {
+    color:  #45B8FF;
+    background: url(game1.jpg);
+    background-size: cover;
+    font-family: 'Play', 'Helvetica', 'Arial', sans-serif;
+  }
 
-body a {
-  color: #00FFF4;
-  font-size: 20px;
-}
+  a {
+    color:  #45B8FF;
+    text-decoration: underline;
+    font-size: 200%;
+  }
 
-body a:hover {
-  text-decoration: underline;
-  color: #6E707A;
-}
+  a:hover {
+    color: #91D5FF;
+  }
 
-header {
-  background-color: #000000;
-  text-align: left;
-  padding: 20px; 
-}
+  header {
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: left;
+    padding: 20px; 
+  }
 
-header ul li {
-  display: inline;
-  padding: 20px;
-}
+  header ul li {
+    display: inline;
+    padding: 20px;
+  }
 
-header a {
-  font-size: 26px;
-}
+  footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    bottom: 0px;
+    text-align: center;
+    line-height: 1.5;
+    padding: 10px;
+  }
 
-section {
-  text-align: right;
-  margin-top: -47px;
-  margin-right: 5%;
-}
+  footer a {
+    font-size: 120%;
+  }
 
-footer {
-  background-color: #000000;
-  position: fixed;
-  left: 0px;
-  bottom: 0px;
-  height: 20px;
-  width: 100%;
-  text-align: center;
-  vertical-align: middle;
-  padding: 20px;
-}
+  footer p {
+    font-size: 120%;
+  }
 
-footer p {
-  display: inline;
-  padding: 20px;
-  vertical-align: top;
-  font-size: 18px;
-}
+  .main {
+    position: relative;
+    width: 70%;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-top: 5%;
+    margin-bottom: 10%;
+    padding: 5px 20px 20px 20px;
+  }
 
-.main {
-  margin-left: 5%;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  margin-bottom: 5%;
-}
+  h1 {
+    font-size: 72px;
+  }
 
-.sign {
-  width: 60%;
-  margin-top: 40px;
-  margin-right: auto;
-  margin-left: auto;
-  color: #6E707A;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 5px 20px 20px 20px;
-}
+  h2 {
+    font-size: 32px;
+    margin-bottom: 5%;
+  }
 
-.sign h1 {
-  font-size: 72px;
-  font-weight: bold;
-}
+  p {
+    font-size: 26px;
+  }
 
-.sign h2 {
-  font-size: 32px;
-  margin-top: 0.5%;
-  margin-bottom: 3%;
-}
+  .field {
+    font-size: 26px;
+  }
 
-.sign label {
-  padding: 5px;
-  font-size: 22px;
-}
+  .field input {
+    color: #000000;
+    font-size: 22px;
+  }
 
-.sign .field {
-  padding: 10px;
-}
+  .actions input {
+    margin-top: 5%;
+    font-size: 26px;
+    font-weight: bold;
+    color: #000000;
+    background-color: #45B8FF;
+    border: solid black 2px;
+  }
 
-.sign select {
-  font-size: 22px;
-  font-weight: bold;
-  color: #6E707A;
-  padding: 5px;
-}
 
-.sign input {
-  font-size: 22px;
-  font-weight: bold;
-  color: #6E707A;
-  padding: 5px;
-  border-radius: 5px;
-}
 
-#container {
-  text-align: center;
-  font-size: 22px;
-  color: #FF0000;
-  margin-top: 1%;
-  font-weight: bold;  
-}
+  #container {
+    text-align: center;
+    font-size: 22px;
+    color: #FF0000;
+    margin-top: 1%;
+    font-weight: bold;  
+  }
 
-.index {
-  width: 60%;
-  margin-top: 40px;
-  margin-right: auto;
-  margin-left: auto;
-  color: #6E707A;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 5px 20px 5px 20px;
-}
+  #startgame {
+    float: right;
+    display: inline;
+    margin-bottom: 20px;
+  }
 
-.index h1 {
-  font-size: 46px;
-  margin-bottom: 90px;
-}
+  #startgame p {
+    text-align: center;
+  }
 
-.index h2 {
-  font-size: 32px;
-  font-weight: bold;
-}
+  #startgame a {
+    font-size: 22px;
+  }
 
-.index p {
-  text-align: justify;
-  font-size: 22px;
-  padding: 5px,
-}
+  #score table {
+    border: solid 1px;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    padding: 5px;
+    width: 60%;
+  }
 
-.index table {
-  table-layout: fixed;
-  text-align: center;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5%;
-  font-size: 20px;
-}
+  .index {
+    width: 100%;
+  }
 
-.index th {
-  text-align: center;
-  font-weight: bold;
-  font-size: 26px;
-}
+  .index h1 {
+    font-size: 46px;
+    margin-top: 5%;
+    font-weight: bold;
+  }
 
-.index td {
-  font-size: 20px;
-}
+  .index img {
+    margin-top: 10%;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-.index td a {
-  font-size: 26px;
-}
+  .index table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+  }
 
-.index img {
-  margin-top: 10%;
-  width: 30%;
-  margin-left: auto;
-  margin-right: auto;
-}
+  .index th {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 3%;
+    font-weight: bold;
+  }
 
-.special {
-  color: #00FFF4;
-}
+  .index a {
+    font-size: 20px;
+  }
 
-#startgame {
-  float: right;
-  display: inline;
-  margin-bottom: 20px;
-}
+  #show {
+    margin-bottom: 10%; 
+  }
 
-#startgame img {
-  margin-top: 10%;
-  width: 40%;
-  margin-left: auto;
-  margin-right: auto;
-}
+  #show #status {
+    color: #FF5E60;
+    font-size: 32px;
+  }
 
-#startgame p {
-  text-align: center;
-}
+  #show a {
+    font-size: 100%;
+  }
 
-.index ul li {
-  display: inline;
-  padding: 5px;
-  text-align: left;
-}
+  #show table {
+    border: collapse;
+    border-style: hidden;
+    width: 60%;
+    height: 60%;
+    font-weight: bold;
+    font-size: 76px;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
 
-.index ul li a {
-  color: #6E707A;
-}
+  #show td {
+    border: solid #FF5E60 5px;
+  }
 
-.index ul li a:hover {
-  color: #00FFF4;
-}
+  #show td:first-child {
+    border-left: 0;
+  }
 
-#score {
-  color: #00FFF4;
-}
+  #show td:first-child {
+    border-left: 0;
+  }
 
-#score table {
-  border: solid 1px;
-  margin-bottom: 5%;
-  padding: 5px;
-}
+  #show tr:last-child td {
+    border-bottom: none;
+  }
+
+  #show td:nth-last-child(-n+3) {
+    border-top: 0;
+  }
+
+  #show td:nth-last-child(-n+3) {
+    border-top: 0;
+  }
+
+  #show td:last-child {
+    border-right: 0;
+  }
+
+  #show td a {
+    color: #6E707A;
+    font-weight: none;
+  }
+
+  #show td a:hover {
+    color: #45B8FF;
+  }    
+
+  @media (max-width: 960px) {
+    
+    body {
+      background-size: auto;
+    }  
+
+
+    .main {
+      margin-bottom: 5%;
+    }
+
+    a {
+      font-size: 150%;
+    }
+
+    header {
+      display: block;
+      padding: 5px;
+    }
+
+    h1 {
+      font-size: 52px;
+    }
+
+    h2 {
+      font-size: 22px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    .field input {
+      font-size: 16px;
+    }
+
+    #container {
+      font-size: 16px; 
+    }
+
+    #startgame a {
+      font-size: 16px;
+    }
+
+    .index table {
+      font-size: 14px;
+    }
+
+    .index th {
+      font-size: 16px;
+    }
+
+    .index a {
+      font-size: 14px;
+    }
+
+      /* Force table to not be like tables anymore */
+    .index table, .index thead, .index tbody, .index th, .index td, .index tr { 
+      display: block; 
+    }
+  
+    /* Hide table headers (but not display: none;, for accessibility) */
+    .index thead .index tr { 
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+  
+    .index tr { border: 1px solid #45B8FF; }
+    
+    .index td { 
+      /* Behave  like a "row" */
+      border: none;
+      border-bottom: 1px solid #45B8FF; 
+      position: relative;
+      padding-bottom: 5%;
+    }
+    
+    .index td:before { 
+      /* Now like a table header */
+      position: absolute;
+      /* Top/left values mimic padding */
+      top: 6px;
+      left: 6px;
+      width: 45%; 
+      padding-right: 10px; 
+      white-space: nowrap;
+    }
+
+    #score table {
+      width: 100%;
+    }
+
+    #startgame {
+      float: none;
+    }
+
+    #show #status {
+      font-size: 22px;
+    }
+
+    #show table {
+      font-size: 36px;
+    }
+
+    #show td a {
+      color: #6E707A;
+      font-weight: none;
+    }
+
+    #show td a:hover {
+     color: #45B8FF;
+    } 
+
+  }
+
+
+
+
+/*
+
 
 #show {
   width: 60%;
@@ -239,60 +358,8 @@ footer p {
   padding: 5px,
 }
 
-#show table {
-  width: 60%;
-  height: 60%;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  font-size: 76px;
-  font-weight: bold;
-  color: #00FFF4;
-  border: collapse;
-  border-style: hidden;
-  background-color: rgba(0, 42, 255, 0.2);
-}
 
-#show td {
-  border: solid 5px;
-  border-color: #6E707A;
-}
 
-#show td:first-child {
-  border-left: 0;
-}
 
-#show td:first-child {
-  border-left: 0;
-}
 
-#show tr:last-child td {
-  border-bottom: none;
-}
-
-#show td:nth-last-child(-n+3) {
-  border-top: 0;
-}
-
-#show td:nth-last-child(-n+3) {
-  border-top: 0;
-}
-
-#show td:last-child {
-  border-right: 0;
-}
-
-#show td a {
-  font-size: 56px;
-  color: #6E707A;
-  font-weight: none;
-}
-
-#show td a:hover {
-  font-size: 76px;
-  font-weight: bold;
-  color: #00FFF4;
-  text-decoration: underline;
-}
+*/

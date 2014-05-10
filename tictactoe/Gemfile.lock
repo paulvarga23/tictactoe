@@ -135,6 +135,7 @@ DEPENDENCIES
   cancan (= 1.6.10)
   coffee-rails (~> 3.2.1)
   jquery-rails
+  json
   kaminari
   pg
   pry-rails

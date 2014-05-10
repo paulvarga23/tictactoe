@@ -10,6 +10,7 @@ gem 'cancan', '1.6.10'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
+gem 'json'
 
 group :development, :test do
   gem 'pry-rails'

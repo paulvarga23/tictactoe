@@ -2,56 +2,16 @@
 
 <div class= "index">
 
+  
+
+  <h1> Your Board </h1>
+
   <div id="startgame">
     <p><%= link_to image_tag("tictactoe_new.png"), new_tic_tac_toe_path %></p>
     <p><%= link_to 'Click for New Game', new_tic_tac_toe_path %></p>
   </div>
 
-  <h1> Your Tic Tac Toe Games </h1>
-
   <% if @tic_tac_toes_current.any? %>
-    <table>
-      <tr>
-        <th><em><strong>Go To Game</strong></em></th>
-        <th>Player 1</th>
-        <th>Player 2</th>
-        <th>Turn</th>
-        <th>Winner</th>
-      </tr> 
-    <% @tic_tac_toes.each do |tic_tac_toe|%>
-      
-      <tr>
-        <td><%= link_to image_tag("tictactoe_new.png"), tic_tac_toe_path(tic_tac_toe) %></td>
-        <td><%= tic_tac_toe.player1.try(:name) %></td>
-        <td><%= tic_tac_toe.player2.try(:name) %></td>
-        <td>
-          <% if tic_tac_toe.game_is_finished? %>
-            Game done
-          <% else %>
-            <%= tic_tac_toe.whose_turn?.name %>
-          <% end %>
-        </td>
-        <td>
-          <% if tic_tac_toe.winning_game? %>
-            <%= tic_tac_toe.winning_player.try(:name) %>
-          <% elsif tic_tac_toe.drawn_game? %>
-            Draw
-          <% else %>
-            <span class="special">
-              <strong>ONGOING</strong>
-            </span>
-          <% end %>
-        </td>
-      </tr>
-        
-    <% end %>
-
-    </table>
-
-    <ul>
-      <li>
-     </li>
-    </ul>
 
     <div id="score">
       <table>
@@ -92,6 +52,36 @@
 
       </table>
     </div>
+
+    <table>
+      <tr>
+        <th><em><strong>Go To Game</strong></em></th>
+        <th>Player 1</th>
+        <th>Player 2</th>
+        <th>Status</th>
+      </tr> 
+    <% @tic_tac_toes.each do |tic_tac_toe|%>
+      
+      <tr>
+        <td><%= link_to image_tag("tictactoe_new.png"), tic_tac_toe_path(tic_tac_toe) %></td>
+        <td><%= tic_tac_toe.player1.try(:name) %></td>
+        <td><%= tic_tac_toe.player2.try(:name) %></td>
+        <td>
+          <% if tic_tac_toe.winning_game? %>
+            <%= link_to tic_tac_toe.winning_player.try(:name), tic_tac_toe_path(tic_tac_toe) %> won!
+          <% elsif tic_tac_toe.drawn_game? %>
+            <%= link_to 'DRAW', tic_tac_toe_path(tic_tac_toe)  %>
+          <% else %>
+            <span class="special">
+              <em><strong><%= link_to tic_tac_toe.whose_turn?.try(:name), tic_tac_toe_path(tic_tac_toe) %>'s turn</strong></em>
+            </span>
+          <% end %>
+        </td>
+      </tr>
+        
+    <% end %>
+
+    </table>
 
   <% end %>
 </div>
