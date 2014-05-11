@@ -50,9 +50,8 @@ class TicTacToesController < ApplicationController
 
       # add javascript 
       respond_to do |format|
-        format.js #{ render '.js.erb' }
+        format.js 
         format.html { redirect_to @tic_tac_toe, notice: 'Thanks for making this move- lets see how good it is.' }
-        format.json { render json: @tic_tac_toe }
       end
 
     else
