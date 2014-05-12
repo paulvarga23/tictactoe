@@ -18,7 +18,7 @@
     <% (0..8).each_slice(3) do |slice| %>
       <tr>
         <% slice.each do |square| %>
-          <td class="boardsquare"><%= render partial: 'make_move_link', locals: {square: square} %> </td> 
+          <td class="boardsquare" id='boardsquare_<%= square %>'><%= render partial: 'make_move_link', locals: {square: square} %> </td> 
         <% end %>
       </tr>
     <% end %>

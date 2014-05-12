@@ -1,47 +1,8 @@
 /* Addig JS with AJAX to update the page automatically once a player moved */
 
-// var TicTacToe = TicTacToe || {};
+<% (0..8).each do |square| %>
+var moveHTML = "<%= escape_javascript(render partial: 'make_move_link', locals: {square: square}) %>"
 
-// // TicTacToe.updatePage = function(data){
-// //   $.each(data, function(i,name){
-// //     <% if @tic_tac_toe.whose_turn? == @tic_tac_toe.player1 %>
-// //       $('.boardlink').click(function() { // should be move of player 1
-// //       $(this).text("X") });
-// //     <% elsif @tic_tac_toe.whose_turn? == @tic_tac_toe.player2 %>
-// //       $('.boardlink').click(function() { // should be move of player 2
-// //       $(this).text("O") });
-// //   <% else %>
-// //     <^= @tic_tac_toe.board[square] || "_" %>
-// //   <% end %>
-// //   });
-// // };
+$('#boardsquare_' + <%= square %>).html(moveHTML);
+<% end %>
 
-
-// // TicTacToe.boardUpdateHanlder = function(ev) {
-// //     ev.preventDefault();
-// //     var boardValue = $('.boardlink').val(); // should be move of either player one or two
-// //     var id = <% if @tic_tac_toe.id %>
-
-// //     var data = {boardValue: boardValue};
-
-// //     console.log(data)
-
-// //     var ajaxOptions = {
-// //       url: '/tic_tac_toes/' + id,
-// //       type: 'POST',
-// //       data: data,
-// //       success: TicTacToe.updatePage,
-// //       error: function(data) {
-// //         console.error("Ajax request failed.");
-// //         console.log(data);
-// //       },
-// //     };
-// //   $.ajax(ajaxOptions);
-// // };
-
-// TicTacToe.setup = function() {
-//   $('.boardlink').click(function() { 
-//     $(this).text("X") });  // should be move of either player one or two
-// };
-
-// $(TicTacToe.setup);
