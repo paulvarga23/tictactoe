@@ -1,8 +1,8 @@
 /* Addig JS with AJAX to update the page automatically once a player moved */
 
 <% (0..8).each do |square| %>
-var moveHTML = "<%= escape_javascript(render partial: 'make_move_link', locals: {square: square}) %>"
+  var moveHTML = "<%= escape_javascript(render partial: 'make_move_link', locals: {square: square}) %>"
 
-$('#boardsquare_' + <%= square %>).html(moveHTML);
+  $('#boardsquare_' + <%= square %>).html(moveHTML);
 <% end %>
 
